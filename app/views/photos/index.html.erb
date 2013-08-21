@@ -21,5 +21,7 @@
 </table>
 
 <br />
-
-<%= link_to 'New Photo', new_photo_path %>
+<%= direct_upload_form_for @uploader do |f| %>
+  <p><%= f.file_field :image %></p>
+  <p><%= f.submit "Upload Image" %></p>
+<% end %>

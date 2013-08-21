@@ -3,12 +3,15 @@ class PhotosController < ApplicationController
   # GET /photos.json
   def index
     @photos = Photo.all
+    @uploader = Photo.new.image
+    @uploader.success_action_redirect = new_photo_url
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @photos }
     end
   end
+
 
   # GET /photos/1
   # GET /photos/1.json
@@ -24,7 +27,7 @@ class PhotosController < ApplicationController
   # GET /photos/new
   # GET /photos/new.json
   def new
-    @photo = Photo.new
+    @photo = Photo.new(key: params[:key])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -80,4 +83,6 @@ class PhotosController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
 end
