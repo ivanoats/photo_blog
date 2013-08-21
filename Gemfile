@@ -11,6 +11,7 @@ gem 'figaro'
 gem 'fog'
 gem 'carrierwave_direct'
 gem 'sidekiq'
+gem 'redis'
 
 # Gems used only for assets and not required
 # in production environments by default.
